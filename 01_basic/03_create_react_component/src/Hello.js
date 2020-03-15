@@ -6,4 +6,5 @@ function HelloWorld() {
   return <div>hi hi</div>;
 }
 
+//  컴포넌트를 다른 컴포넌트에서 사용할 수 있도록 내보내기.
 export default HelloWorld;
