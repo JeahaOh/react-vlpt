@@ -49,7 +49,7 @@ function App() {
 
     //  push는 사용하면 안됨.
     // setUsers([...users, user]);
-    setUsers( users.concat(user) );
+    setUsers( users => users.concat(user) );
 
     nextId.current += 1;
 
@@ -57,7 +57,7 @@ function App() {
       username : '',
       email : ''
     })
-  }, [username, email, users]);
+  }, [username, email]);
 
   const onChange = useCallback(e => {
     const {name, value } = e.target;
@@ -69,18 +69,18 @@ function App() {
   }, [inputs]);
 
   const onRemove = useCallback( id => {
-    setUsers( users.filter( user => user.id !== id ) );
+    setUsers( users => users.filter( user => user.id !== id ) );
     
-  }, [users]);
+  }, []);
 
   const onToggle = useCallback( id => {
-    setUsers(
+    setUsers( users =>
       users.map(
         user => user.id === id
           ? { ...user, active: !user.active }
           : user
     ));
-  }, [users]);
+  }, []);
 
   //  이곳의 depth는 useMemo가 작동 트리거가 되는 변수를 넣어준다.
   const count = useMemo( () => countActiveUsers( users ), [users] );
