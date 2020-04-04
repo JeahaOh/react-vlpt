@@ -131,3 +131,10 @@ BUT, onRemove나 onToggle에서 최신상태의 users를 바라보지 않기 때
 렌더린된 컴포넌트를 재사용할 땐 React.memo를 사용.  
 무조건 useCallback, useMemo을 사용한다고 성능 최적화가 되진 않음.  
 경우에 따라서 사용해야함.
+
+### useReducer Hook
+useState가 아닌 useReducer로 컴포넌트의 상태를 관리해 보자.  
+컴포넌트의 상태 업데이트 로직을 컴포넌트 밖으로 분리 가능.  
+-> 다른 파일에서 불러와 사용도 가능.  
+reducer : 상태를 업데이트 하는 함수.  
+  
