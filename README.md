@@ -138,3 +138,6 @@ useState가 아닌 useReducer로 컴포넌트의 상태를 관리해 보자.
 -> 다른 파일에서 불러와 사용도 가능.  
 reducer : 상태를 업데이트 하는 함수.  
   
+관리하는 값이 단순하다면 useState가 낫다.(간단하면 useState)  
+관리하는 값이 많고 상태의 구조가 복잡하다면 useReducer가 낫다.  
+(setter를 한 함수에서 여러번 사용한다면 useReduce를 사용하는게 낫다.)
