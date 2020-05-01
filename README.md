@@ -173,3 +173,13 @@ class 형 컴포넌트의 사용은 지양하는 추세이지만 일단 알아�
 class형 component의 state는 무조건 객체여야 한다.  
 setState는 비동기로 상태 변경을 요청하는 함수로 이해 해야함.  
 한 메소드에서 여러번 setState를 사용할 일이 있다면 함수형 update를 해줘야 함.
+
+### 29 LifeCycle Method
+class형 component를 사용할 경우 컴포넌트 생명주기 메소드를 사용 가능함.  
+function형 component에서는 useEffect가 이와 비슷하고,  
+작동 방식은 다르고 서로 커버하는 함수가 약간씩 다르긴 함.  
+사용빈도가 높진 않지만 일단 알아 두도록 하자.  
+https://bit.ly/fcreact-lifecycle
+
+### 30 componentDidCatch()
+class형 component를 사용하는 리엑트 어플리케이션에서의 에러 처리.  
