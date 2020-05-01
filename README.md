@@ -163,8 +163,13 @@ immer를 사용하면 불변성을 해치는 코드를 작성해도,
 immer가 대신 불변성을 유지해준다.  
 
 #### 26 reducer Immer로 구현하기.
-immer를 사용한다고 무조건 코드가 깔끔해지는건 아니므로, 적재적소에 사용해주는게 좋다.
+immer를 사용한다고 무조건 코드가 깔끔해지는건 아니므로, 적재적소에 사용해주는게 좋다.  
 
 ### 27 Class 형 Component
 class 형 컴포넌트의 사용은 지양하는 추세이지만 일단 알아는 보자.  
-그 이유는 useEffect나 Hooks를 사용할 수 있게 되면서 함수형 컴포넌트가 트렌드가 됨.
+그 이유는 useEffect나 Hooks를 사용할 수 있게 되면서 함수형 컴포넌트가 트렌드가 됨.  
+
+### 28 Class Component의 state와 setState
+class형 component의 state는 무조건 객체여야 한다.  
+setState는 비동기로 상태 변경을 요청하는 함수로 이해 해야함.  
+한 메소드에서 여러번 setState를 사용할 일이 있다면 함수형 update를 해줘야 함.

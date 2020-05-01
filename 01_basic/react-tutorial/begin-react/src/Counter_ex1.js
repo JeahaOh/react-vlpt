@@ -2,58 +2,28 @@ import React, { useReducer, Component } from 'react';
 
 class Counter extends Component {
 
-  //  class properties
-  state = {
-    counter : 0,
-    fixed: 1,
-    updateMe: {
-      toggleMe: false,
-      dontChangeMe: 1
-    }
+  constructor( props ) {
+    super(props);
+    this.handleIncrease = this.handleIncrease.bind( this );
+    this.handleDecrease = this.handleDecrease.bind( this );
   }
 
-  handleIncrease = () => {
-    // console.log( this );
-    // console.log( 'increase' );
-    // this.setState({
-    //   counter: this.state.counter + 1
-    // });
-    this.setState( state => ({
-      counter: state.counter + 1
-    }));
-    this.setState( state => ({
-      counter: state.counter + 1
-    }));
-  }
-  
-  handleDecrease = () => {
-    // console.log( this );
-    // console.log( 'decrease')
-    this.setState({
-      counter: this.state.counter - 1
-    });
-    this.setState({
-      counter: this.state.counter - 1
-    });
+  handleIncrease() {
+    console.log( this );
+    console.log( 'increase' );
   }
 
-  
-  handleToggle = () => {
-    this.setState({
-      updateMe: {
-        ...this.state.updateMe,
-        toggleMe: !this.state.updateMe.toggleMe
-      }
-    })
+  handleDecrease() {
+    console.log( this );
+    console.log( 'decrease')
   }
 
   render() {
     return (
       <div>
-        <h1>{this.state.counter}</h1>
+        <h1>0</h1>
         <button onClick={this.handleIncrease}>+1</button>
         <button onClick={this.handleDecrease}>-1</button>
-        <p>고정된 값 : {this.state.fixed}</p>
       </div>
     )
   }
