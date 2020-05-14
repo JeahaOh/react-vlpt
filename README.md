@@ -183,4 +183,7 @@ https://bit.ly/fcreact-lifecycle
 
 ### 30 componentDidCatch()
 class형 component를 사용하는 리엑트 어플리케이션에서의 에러 처리.  
- 
+
+### 31 componentDidCatch()와 Sentry 연동
+sentry 서비스를 이용해서 slack으로 에러 메세지를 받는 방법.  
+실습은 ㄴㄴ.
