@@ -229,3 +229,8 @@ Prettier는 자동으로 코드의 스타일을 지정해주는 툴임.
 .prettierrc에서 포메팅 설정 가능.  
 vscode 설정에서 `format on save` on으로 하면 저장할 때마다 prettier가 적용됨.  
 저장할 때 포메팅하면 굉장히 편하다고 함.
+
+### ESLint
+
+ESLint는 JS문법을 검사해주며, code format을 관리해 줌.  
+나는 이거 별로던데...
