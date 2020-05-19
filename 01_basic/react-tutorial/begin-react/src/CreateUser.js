@@ -1,46 +1,55 @@
-import React, {useRef, useContext} from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import useInputs from './useInputs';
 import { UserDispatch } from './App';
 
-function CreateUser() {
-  const [ { username, email }, onChange, reset ] = useInputs({
-    username: '',
+const CreateUser = () => {
+
+
+  const [{ name, email }, onChange, reset] = useInputs({
+    name: '',
     email: ''
   });
 
-  const nextId = useRef(4);
-  const dispatch = useContext( UserDispatch );
+  const { dispatch, lastId } = useContext(UserDispatch);
+  const nextId = useRef(lastId + 1);
 
   const onCreate = () => {
     dispatch({
       type: 'CREATE_USER',
       user: {
         id: nextId.current,
-        username,
-        email
+        name, email
       }
     });
     reset();
     nextId.current += 1;
-  }
+  };
+
+  useEffect(() => {
+    console.log('CreateUser Component Render : ', name, email);
+    // console.log('dispatch : ', UserDispatch);
+    return () => {
+      console.log('CreateUser Component On UNMOUNT : ', name, email);
+    }
+  }, [name, email]);
 
   return (
-    <div>
+    <>
       <input
-        name="username"
-        placeholder="계정명"
+        name="name"
+        placeholder="name"
         onChange={onChange}
-        value={username}
+        value={name}
       />
       <input
         name="email"
-        placeholder="이메일"
+        placeholder="email"
         onChange={onChange}
         value={email}
       />
-      <button onClick={onCreate}>등록</button>
-    </div>
+      <button onClick={onCreate}>Regist</button>
+    </>
   );
-}
+};
 
 export default React.memo(CreateUser);

@@ -1,35 +1,41 @@
-//  useReducer를 이용한 custom hook
-import { useReducer, useCallback } from 'react'
+import { useReducer, useCallback } from 'react';
 
-function reducer( state, action ) {
-  switch( action.type ) {
-    case 'CHANGE' :
+const INPUT_REDUCER_ON_CHANGE = 'INPUT_REDUCER_ON_CHANGE';
+const INPUT_REDUCER_RESET = 'INPUT_REDUCER_RESET';
+
+const inputReducer = function (state, action) {
+  console.log('inputReducer : ', state, action);
+  switch (action.type) {
+    case INPUT_REDUCER_ON_CHANGE:
       return {
         ...state,
-        [action.name] : action.value
-      };
-    case 'RESET' :
-      return Object.keys(state).reduce( (acc, current) => {
-        acc[current] = '';
+        [action.name]: action.value
+      }
+    case INPUT_REDUCER_RESET:
+      return Object.keys(state).reduce((acc, cur) => {
+        acc[cur] = '';
         return acc;
       }, {});
-    default :
-      return state;
+    default:
+
+      throw new Error('Unhandled Action Type On Input Reducer Error');
   }
 }
 
-function useInputs( initialForm ) {
-  const [ form, dispatch ] = useReducer( reducer, initialForm );
-  
-  //  change
-  const onChange = useCallback( e => {
+export default function useInputs(initialForm) {
+  const [form, dispatch] = useReducer(inputReducer, initialForm);
+
+  const onChange = useCallback(e => {
     const { name, value } = e.target;
-    dispatch( { type : 'CHANGE', name, value } );
+    dispatch({
+      type: INPUT_REDUCER_ON_CHANGE,
+      name, value
+    });
   }, []);
-  
-  const reset = useCallback( () => dispatch({ type : 'RESET'}), []);
 
-  return [ form, onChange, reset ];
-}
+  const reset = useCallback(() =>
+    dispatch({ type: INPUT_REDUCER_RESET }), []
+  );
 
-export default useInputs;
+  return [form, onChange, reset];
+};
