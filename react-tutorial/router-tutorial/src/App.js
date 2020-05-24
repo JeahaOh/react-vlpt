@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
-import { About, Home, Profile } from './component';
+import { About, Home, Profiles } from './component';
 import './App.css';
 
 function App() {
@@ -12,7 +12,10 @@ function App() {
             <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="about">About</Link>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/profiles">Profiles</Link>
           </li>
         </ul>
         <hr />
@@ -20,7 +23,7 @@ function App() {
       <div>
         <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/profiles/:username" component={Profile} />
+        <Route path="/profiles" component={Profiles} />
       </div>
     </>
   );
