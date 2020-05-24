@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
+import WithRouterSample from './WithRouterSample';
 
 const profileData = {
   asdf: {
-    name: "asdf",
-    desc: "easy keyword to type.",
+    name: 'asdf',
+    desc: 'easy keyword to type.',
   },
   anon: {
-    name: "anonymous",
-    desc: "no name",
+    name: 'anonymous',
+    desc: 'no name',
   },
 };
 
@@ -17,7 +18,11 @@ const Profiles = ({ match }) => {
   const profile = profileData[username];
 
   if (!profile) {
-    return <div>Not Exist User.</div>;
+    return (
+      <>
+        <div>Not Exist User.</div>
+      </>
+    );
   } else
     return (
       <>
@@ -27,6 +32,7 @@ const Profiles = ({ match }) => {
           </h3>
           <p>{profile.desc}</p>
         </div>
+        <WithRouterSample />
       </>
     );
 };
