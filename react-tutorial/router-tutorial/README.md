@@ -49,3 +49,14 @@ match, location과 함께 전달되는 props중에 하나임.
 Route가 사용되지 않은 컴포넌트에서 조건부로 이동을 해야할 때 사용함.(로그인등 기능으로 route 해야 할 경우.)  
 match, location, history 사용.  
 사용된 경로에 따라 match가 보여지는것이 다름.
+
+## react-router 부가기능
+
+### Switch
+
+Switch 컴포넌트를 사용하면 router에서 가장 먼저 매칭되는 컴포넌트를 보여줌.  
+Not Found Page를 렌더할때 사용함.
+
+### NavLink
+
+현재 주소와 일치한다면, 스타일이나 클래스 네임을 바꿔줄 수 있음.

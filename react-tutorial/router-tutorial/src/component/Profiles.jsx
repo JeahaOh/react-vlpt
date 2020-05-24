@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import WithRouterSample from './WithRouterSample';
-import { Link, Route } from 'react-router-dom';
+import { NavLink, Route, withRouter } from 'react-router-dom';
 
 const Profiles = () => {
   return (
@@ -10,10 +10,22 @@ const Profiles = () => {
         <h3>User Profiles</h3>
         <ul>
           <li>
-            <Link to="/profiles/asdf">asdf</Link>
+            <NavLink
+              to="/profiles/asdf"
+              activeStyle={{ background: 'dimgrey', color: 'white' }}
+              activeClassName="active"
+            >
+              asdf
+            </NavLink>
           </li>
           <li>
-            <Link to="/profiles/anon">anon</Link>
+            <NavLink
+              to="/profiles/anon"
+              activeStyle={{ background: 'dimgrey', color: 'white' }}
+              activeClassName="active"
+            >
+              anon
+            </NavLink>
           </li>
         </ul>
         {/* 선택된 사용자가 없을 경우. */}
